@@ -1,7 +1,9 @@
 package EnrollmentSystem;
 
+import java.util.Date;
+
 public class Student {
-    public static void main(String[] args) {
-        System.out.println("Hello ");
-    }
+    private String id;
+    private String name;
+    private Date birthdate;
 }

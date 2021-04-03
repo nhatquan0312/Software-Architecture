@@ -1,7 +1,7 @@
 package EnrollmentSystem;
 
 public class StudentEnrollment {
-    public static void main(String[] args) {
-
-    }
+    private String studentID;
+    private String courseID;
+    private String semester;
 }
