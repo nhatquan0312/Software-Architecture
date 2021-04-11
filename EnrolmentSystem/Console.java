@@ -3,6 +3,7 @@ package EnrolmentSystem;
 import EnrolmentSystem.Class.Course;
 import EnrolmentSystem.Class.Student;
 import EnrolmentSystem.Class.StudentEnrolment;
+import EnrolmentSystem.Class.list.StudentEnrolmentList;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -43,6 +44,7 @@ public class Console {
         enrolmentList.addExamples(enrolment8);
         StudentEnrolment enrolment9 = new StudentEnrolment(student3, course4 , "2021A");
         enrolmentList.addExamples(enrolment9);
+        StudentEnrolment enrolment10 = new StudentEnrolment(student1,course2,"2020C");
 
         System.out.println("Please select yes if user wants to view any file and no if the use don't want to");
         String result= input.nextLine();
@@ -89,6 +91,9 @@ public class Console {
                         break;
                     case "5":
                         enrolmentList.delete();
+                        break;
+                    case "6":
+
                         break;
                 }
                 break;

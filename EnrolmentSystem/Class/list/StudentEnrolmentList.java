@@ -1,8 +1,10 @@
-package EnrolmentSystem;
+package EnrolmentSystem.Class.list;
 
+import EnrolmentSystem.CSVReport;
 import EnrolmentSystem.Class.Course;
 import EnrolmentSystem.Class.Student;
 import EnrolmentSystem.Class.StudentEnrolment;
+import EnrolmentSystem.StudentEnrolmentManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,14 +25,14 @@ public class StudentEnrolmentList implements StudentEnrolmentManager {
             System.out.println("Added successfully!!");
         }
         catch(Exception e){
-            System.out.println("Something wrong");
+            System.out.println("Something is wrong");
         }
     }
 
     @Override
     public void update() {
-        System.out.print(" 1 to Add Course for a student \n"
-                +" 2 to Delete:");
+        System.out.print(" Type 1 to Add Course for a student \n"
+                +" Type 2 to Delete:");
         String userChoice = userInput.nextLine();
         try {
             int choice = Integer.parseInt(userChoice);
@@ -67,9 +69,10 @@ public class StudentEnrolmentList implements StudentEnrolmentManager {
 
     @Override
     public StudentEnrolment getOne(StudentEnrolment userInput) {
-        for (StudentEnrolment enrolment : enrolments) {
-            if (userInput == enrolment) {
+        for (StudentEnrolment enrolment: enrolments) {
+            { if(userInput.getStudentID() == enrolment.getStudentID()){;
                 return enrolment;
+                }
             }
         }
         return null;
@@ -116,14 +119,11 @@ public class StudentEnrolmentList implements StudentEnrolmentManager {
                 courses.add(enrolment.getCourse());
             }
         }
-        showCoursesFormat(courses);
-        CSVReport.coursesOfStudent(courses, "C:\\Users\\Nhat Quan\\IdeaProjects\\Software-Architecture\\EnrolmentSystem\\Class\\reports\\report.csv" );
-    }
-    public void showCoursesFormat(List<Course> courseList){
         System.out.println("CourseID CourseName NumberOfCredit");
-        for (Course course: courseList){
+        for (Course course: courses){
             System.out.println(course.getID()+" "+course.getName()+" "+ course.getNumberOfCredit() );
         }
+        CSVReport.coursesOfStudent(courses, "C:\\Users\\Nhat Quan\\IdeaProjects\\Software-Architecture\\EnrolmentSystem\\Class\\reports\\report.csv");
     }
     public Boolean isExistStudent(String studentId){
         for (StudentEnrolment enrolment : enrolments) {
@@ -186,8 +186,11 @@ public class StudentEnrolmentList implements StudentEnrolmentManager {
                 students.add(enrolment.getStudent());
             }
         }
-        showStudentsFormat(students);
-        CSVReport.studentsOfCourse(students, "reports/StudentsOfCourseInSemester/"+courseId+"_"+semester+".csv");
+        System.out.println("StudentID StudentName Birthday");
+        for (Student student: students){
+            System.out.println(student.getID()+" "+student.getName()+" "+ student.getBirthdate());
+        }
+        CSVReport.studentsOfCourse(students, "C:\\Users\\Nhat Quan\\IdeaProjects\\Software-Architecture\\EnrolmentSystem\\Class\\reports\\report.csv");
     }
 
     public void showCoursesOfSemester(String semester) {
@@ -198,17 +201,12 @@ public class StudentEnrolmentList implements StudentEnrolmentManager {
                 courses.add(enrolment.getCourse());
             }
         }
-        showCoursesFormat(courses);
-        CSVReport.coursesOfStudent(courses, "reports/CoursesOfferedInSemester/"+semester+".csv");
-    }
-    public void showStudentsFormat(List<Student> studentList){
-        System.out.println("StudentID StudentName Birthday");
-        for (Student student: studentList){
-            System.out.println(student.getID()+" "+student.getName()+" "+ student.getBirthdate());
+        System.out.println("CourseID CourseName NumberOfCredit");
+        for (Course course: courses){
+            System.out.println(course.getID()+" "+course.getName()+" "+ course.getNumberOfCredit() );
         }
+        CSVReport.coursesOfStudent(courses, "C:\\Users\\Nhat Quan\\IdeaProjects\\Software-Architecture\\EnrolmentSystem\\Class\\reports\\report.csv");
     }
-
-
 
 
 

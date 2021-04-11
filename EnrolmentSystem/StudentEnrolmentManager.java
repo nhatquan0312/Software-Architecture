@@ -8,7 +8,7 @@ public interface StudentEnrolmentManager{
         void add();
         void update();
         void delete();
-        StudentEnrolment getOne(StudentEnrolment userInput);
+        StudentEnrolment getOne(StudentEnrolment enrolment);
         ArrayList<StudentEnrolment> getAll();
 
     }

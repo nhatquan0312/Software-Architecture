@@ -1,4 +1,4 @@
-package EnrolmentSystem;
+package EnrolmentSystem.Class.list;
 
 import EnrolmentSystem.Class.Student;
 

@@ -1,6 +1,6 @@
 package EnrolmentSystem.Class;
 
-public class Course extends AbstractClass{
+public class Course extends AbstractClass {
 
     private int numberOfCredit;
 
@@ -13,7 +13,6 @@ public class Course extends AbstractClass{
         super(name,id);
         this.numberOfCredit=numberOfCredit;
     }
-
 
     @Override
     public String getID() {
