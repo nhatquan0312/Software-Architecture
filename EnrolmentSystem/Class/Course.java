@@ -9,8 +9,8 @@ public class Course extends AbstractClass {
         return numberOfCredit;
     }
 
-    public Course(String name, String id, int numberOfCredit) {
-        super(name,id);
+    public Course(String id, String name, int numberOfCredit) {
+        super(id,name);
         this.numberOfCredit=numberOfCredit;
     }
 
